@@ -72,6 +72,9 @@
           ret.resolve(p);
         });
 
+        console.log(smart);
+        console.log(smart.patient);
+
         var doc = smart.patient.api.fetchAll({
           type: "DocumentReference",
           query: {
