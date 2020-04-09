@@ -67,7 +67,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           console.log("hello");
-          console.log(byCodes("55284-4"));
+          console.log(patient);
 
           ret.resolve(p);
         });
