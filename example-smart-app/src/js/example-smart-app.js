@@ -68,6 +68,7 @@
 
           var docRef = byCodes("11506-3");
           console.log(docRef);
+          console.log("hello");
 
           ret.resolve(p);
         });
