@@ -12,6 +12,9 @@
         var patient = smart.patient;
         var pt = patient.read();
         console.log(smart.patient.api);
+
+        console.log(FHIR.read({ type: "Patient", patient: "4342012" }));
+
         var obv = smart.patient.api.fetchAll({
           type: "Observation",
           query: {
@@ -34,8 +37,6 @@
         $.when(pt, obv).done(function (patient, obv) {
           var byCodes = smart.byCodes(obv, "code");
           var gender = patient.gender;
-
-          console.log(patient);
 
           var fname = "";
           var lname = "";
