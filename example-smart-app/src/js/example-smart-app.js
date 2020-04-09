@@ -13,8 +13,6 @@
         var pt = patient.read();
         console.log(smart.patient.api);
 
-        console.log(FHIR.read({ type: "Patient", patient: patient.id }));
-
         var obv = smart.patient.api.fetchAll({
           type: "Observation",
           query: {
