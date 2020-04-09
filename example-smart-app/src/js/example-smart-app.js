@@ -72,21 +72,21 @@
           ret.resolve(p);
         });
 
-        // var doc = smart.patient.api.fetchAll({
-        //   type: "DocumentReference",
-        //   query: {
-        //     code: {
-        //       $or: ["http://loinc.org|11506-3"],
-        //     },
-        //   },
-        // });
+        var doc = smart.patient.api.fetchAll({
+          type: "DocumentReference",
+          query: {
+            code: {
+              $or: ["http://loinc.org|11506-3"],
+            },
+          },
+        });
 
-        // $.when(pt, doc).done(function (patient, doc) {
-        //   var byCodes = smart.byCodes(obv, "code");
-        //   var docRef = byCodes("11506-3");
-        //   console.log(docRef);
-        //   ret.resolve(p);
-        // });
+        $.when(pt, doc).done(function (patient, doc) {
+          var byCodes = smart.byCodes(obv, "code");
+          var docRef = byCodes("11506-3");
+          console.log(patient);
+          ret.resolve(p);
+        });
       } else {
         onError();
       }
