@@ -13,11 +13,11 @@
         var pt = patient.read();
         console.log(smart.patient.api);
 
-        fhir
-          .search({ type: "Patient", query: { name: "maud" } })
-          .then(function (bundle) {
+        FHIR.search({ type: "Patient", query: { name: "maud" } }).then(
+          function (bundle) {
             console.log("Search patients", bundle);
-          });
+          }
+        );
         var obv = smart.patient.api.fetchAll({
           type: "Observation",
           query: {
