@@ -80,11 +80,11 @@
             },
           },
         });
-
+        console.log("hi");
         $.when(pt, doc).done(function (patient, doc) {
           // var byCodes = smart.byCodes(obv, "code");
           // var docRef = byCodes("11506-3");
-          console.log(pt);
+          console.log(patient);
           //ret.resolve(p);
         });
       } else {
