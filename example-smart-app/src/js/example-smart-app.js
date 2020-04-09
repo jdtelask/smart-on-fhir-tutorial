@@ -22,7 +22,6 @@
                 "http://loinc.org|2085-9",
                 "http://loinc.org|2089-1",
                 "http://loinc.org|55284-4",
-                "http://loinc.org|11506-3",
               ],
             },
           },
