@@ -66,9 +66,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          var docRef = byCodes("11506-3");
-          console.log(docRef);
           console.log("hello");
+          console.log(byCodes("11506-3"));
 
           ret.resolve(p);
         });
