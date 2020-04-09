@@ -11,6 +11,7 @@
       if (smart.hasOwnProperty("patient")) {
         var patient = smart.patient;
         var pt = patient.read();
+        console.log(smart.patient.api);
         var obv = smart.patient.api.fetchAll({
           type: "Observation",
           query: {
@@ -22,7 +23,7 @@
                 "http://loinc.org|2085-9",
                 "http://loinc.org|2089-1",
                 "http://loinc.org|55284-4",
-                "http://loinc.org|11506-3",
+                //"http://loinc.org|11506-3",
               ],
             },
           },
@@ -66,30 +67,30 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          console.log("hello");
-          console.log(patient);
+          //console.log("hello");
+          //console.log(patient);
 
           ret.resolve(p);
         });
 
-        console.log(smart);
-        console.log(smart.patient);
+        // console.log(smart);
+        // console.log(smart.patient);
 
-        var doc = smart.patient.api.fetchAll({
-          type: "DocumentReference",
-          query: {
-            code: {
-              $or: ["http://loinc.org|11506-3"],
-            },
-          },
-        });
-        console.log("hi");
-        $.when(pt, doc).done(function (patient, doc) {
-          // var byCodes = smart.byCodes(obv, "code");
-          // var docRef = byCodes("11506-3");
-          console.log(patient);
-          //ret.resolve(p);
-        });
+        // var doc = smart.patient.api.fetchAll({
+        //   type: "DocumentReference",
+        //   query: {
+        //     code: {
+        //       $or: ["http://loinc.org|11506-3"],
+        //     },
+        //   },
+        // });
+
+        // $.when(pt, doc).done(function (patient, doc) {
+        //   // var byCodes = smart.byCodes(obv, "code");
+        //   // var docRef = byCodes("11506-3");
+        //   console.log(patient);
+        //   //ret.resolve(p);
+        // });
       } else {
         onError();
       }
