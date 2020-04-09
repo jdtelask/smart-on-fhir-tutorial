@@ -22,6 +22,7 @@
                 "http://loinc.org|2085-9",
                 "http://loinc.org|2089-1",
                 "http://loinc.org|55284-4",
+                "http://loinc.org|11506-3",
               ],
             },
           },
@@ -65,24 +66,27 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          ret.resolve(p);
-        });
-
-        var doc = smart.patient.api.fetchAll({
-          type: "DocumentReference",
-          query: {
-            code: {
-              $or: ["http://loinc.org|11506-3"],
-            },
-          },
-        });
-
-        $.when(pt, doc).done(function (patient, doc) {
-          var byCodes = smart.byCodes(obv, "code");
           var docRef = byCodes("11506-3");
           console.log(docRef);
+
           ret.resolve(p);
         });
+
+        // var doc = smart.patient.api.fetchAll({
+        //   type: "DocumentReference",
+        //   query: {
+        //     code: {
+        //       $or: ["http://loinc.org|11506-3"],
+        //     },
+        //   },
+        // });
+
+        // $.when(pt, doc).done(function (patient, doc) {
+        //   var byCodes = smart.byCodes(obv, "code");
+        //   var docRef = byCodes("11506-3");
+        //   console.log(docRef);
+        //   ret.resolve(p);
+        // });
       } else {
         onError();
       }
@@ -116,7 +120,6 @@
       });
       if (BP) {
         observation.valueQuantity = BP.valueQuantity;
-        console.log(bp.valueQuantity);
         formattedBPObservations.push(observation);
       }
     });
